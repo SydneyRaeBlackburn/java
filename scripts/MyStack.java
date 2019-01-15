@@ -13,4 +13,12 @@ class MyStack<T> {
             this.next = null;
         }
     }
+    
+    // Add an item to the top of the stack
+    public void push (T data) {
+        StackNode<T> new_node = new StackNode<T>(data);
+        new_node.next = top;
+        top = new_node;
+        return;
+    }
 }
