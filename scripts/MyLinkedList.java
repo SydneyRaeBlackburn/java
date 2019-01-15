@@ -13,4 +13,15 @@ class MyLinkedList<T> {
             this.next = null;
         }
     }
+    
+    /*
+    Appen functions
+     */
+    
+    void appendToHead (T data) {
+        LinkedListNode<T> new_node = new LinkedListNode<T>(data);
+        new_node.next = head;
+        head = new_node;
+        return;
+    }
 }
