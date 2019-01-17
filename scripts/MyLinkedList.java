@@ -15,7 +15,7 @@ class MyLinkedList<T> {
     }
     
     /*
-    Append functions
+    Append Methods
      */
     
     void appendToHead(T data) {
@@ -46,6 +46,25 @@ class MyLinkedList<T> {
             last = last.next;
         }
         last.next = new_node;
+        return;
+    }
+    
+    /*
+     Delete Methods
+     */
+    
+    // Deletes first occurence of data
+    void deleteData(LinkedListNode<T> head, T data) {
+        LinkedListNode<T> curr_node = head, prev_node = null;
+        
+        // Find the node that holds the data
+        while (curr_node != null && curr_node.data != data) {
+            prev_node = curr_node;
+            curr_node = curr_node.next;
+        }
+        if (curr_node == null) return; // Data not in list
+        if (curr_node == head) head = head.next; // remove first node
+        else prev_node.next = curr_node.next;
         return;
     }
 }
