@@ -63,8 +63,27 @@ class MyLinkedList<T> {
             curr_node = curr_node.next;
         }
         if (curr_node == null) return; // Data not in list
-        if (curr_node == head) head = head.next; // remove first node
+        if (curr_node == head) head = head.next; // Remove first node
         else prev_node.next = curr_node.next;
         return;
+    }
+    
+    // Deletes node at a specific location
+    void deleteNode(int position) {
+        if (head == null) return; // Empty list
+        
+        LinkedListNode<T> temp = head;
+        if (position == 0) { // Remove first node
+            head = temp.next;
+            return;
+        }
+        
+        // Find node at position before node to be deleted
+        for (int i = 0; temp!= null && i < position - 1; i++)
+            temp = temp.next;
+        
+        if (temp == null || temp.next == null) return; // Index out of bounds
+        LinkedListNode<T> next = temp.next.next;
+        temp.next = next;
     }
 }
