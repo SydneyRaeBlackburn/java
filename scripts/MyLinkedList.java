@@ -50,6 +50,10 @@ class MyLinkedList<T> {
     }
     
     /*
+     End of Append Methods
+     */
+    
+    /*
      Delete Methods
      */
     
@@ -85,5 +89,16 @@ class MyLinkedList<T> {
         if (temp == null || temp.next == null) return; // Index out of bounds
         LinkedListNode<T> next = temp.next.next;
         temp.next = next;
+    }
+    
+    /*
+     End of Delete Methods
+     */
+    
+    // Checks whether the data is present in the Linked List
+    boolean search(LinkedListNode<T> head, T data) {
+        if (head == null) return false; // Empty list
+        if (head.data == data) return true;
+        return search(head.next, data); // seach Linked List recursively
     }
 }
